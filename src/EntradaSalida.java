@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.sql.SQLOutput;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * Libreria para sacar por dispositivos un mensaje y
@@ -53,6 +56,92 @@ public class EntradaSalida {
      * @return
      */
     public static String entrada(String comentario){
+
+
         return "";
     }
+
+    /**
+     * Metodo que recibe un String y devuelve otro.
+     * La información puede ser procesada a través de la consola o ventana.
+     * @param comentario
+     * @param device
+     * @return
+     * @
+     */
+    public String entrada_texto (String comentario, int device){
+        Scanner entrada = new Scanner(System.in);
+        String respuesta;
+        switch (device) {
+            case (SALIDA_CONSOLA):
+                try{
+                    System.out.println(comentario);
+                    respuesta = entrada.nextLine();
+                    System.out.println("La respuesta es "+ respuesta);
+                    break;
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+                break;
+
+            case(SALIDA_WINDOW):
+                try {
+                    JOptionPane.showInputDialog(comentario);
+                    respuesta = entrada.nextLine();
+                    JOptionPane.showMessageDialog(null,"La respuesta es "+ respuesta);
+                    break;
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            break;
+        }
+        return "";
+    }
+
+    /**
+     * Método para consultar datos numéricos enteros.
+     * La información puede ser procesada a través de la consola o ventana.
+     * @param comentario
+     * @param device
+     * @return
+     */
+
+    public int entrada_entero (String comentario, int device){
+        Scanner entrada = new Scanner(System.in);
+        int respuesta;
+        switch (device) {
+            case (SALIDA_CONSOLA):
+                try{
+                    System.out.println(comentario);
+                    respuesta = entrada.nextInt();
+                    System.out.println("El resultado es " + respuesta);
+                    break;
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            case(SALIDA_WINDOW):
+                try {
+                    JOptionPane.showInputDialog(comentario);
+                    respuesta = entrada.nextInt();
+                    JOptionPane.showMessageDialog(null,respuesta);
+                    break;
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            default: JOptionPane.showInputDialog("Ha habído un error");
+        }
+
+        return 0;
+    }
+
+
+
+
+
 }

@@ -8,5 +8,20 @@ public class Main {
         if (!isOK_consola) System.out.println("ERROR CONSOLA");
         isOK_ventana = EntradaSalida.salida("Hello world", EntradaSalida.SALIDA_WINDOW);
         if (!isOK_ventana) System.out.println("ERROR VENTANA");
+
+        EntradaSalida Entrada_1 = new EntradaSalida();
+
+        Entrada_1.entrada_texto("ADFAD",2);
+
+
+
+
+
+
+
+
+
+
     }
+
 }
