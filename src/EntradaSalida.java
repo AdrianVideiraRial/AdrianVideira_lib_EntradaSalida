@@ -49,7 +49,6 @@ public class EntradaSalida {
                 return false;
         }
     }
-
     /**
      * TODO método para obtener distintos tipos de datos por consola
      * @param comentario
@@ -66,10 +65,10 @@ public class EntradaSalida {
      * La información puede ser procesada a través de la consola o ventana.
      * @param comentario
      * @param device
-     * @return
+     * @return respuesta
      * @
      */
-    public String entrada_texto (String comentario, int device){
+    public static String entrada_texto (String comentario, int device){
         Scanner entrada = new Scanner(System.in);
         String respuesta;
         switch (device) {
@@ -77,25 +76,21 @@ public class EntradaSalida {
                 try{
                     System.out.println(comentario);
                     respuesta = entrada.nextLine();
-                    System.out.println("La respuesta es "+ respuesta);
-                    break;
+                    return respuesta;
                 }
                 catch (Exception e){
                     System.out.println(e.getMessage());
                 }
-                break;
-
             case(SALIDA_WINDOW):
                 try {
                     JOptionPane.showInputDialog(comentario);
                     respuesta = entrada.nextLine();
-                    JOptionPane.showMessageDialog(null,"La respuesta es "+ respuesta);
-                    break;
+                    return respuesta;
                 }
                 catch (Exception e){
                     System.out.println(e.getMessage());
                 }
-            break;
+            default: JOptionPane.showInputDialog("Ha habído un error");
         }
         return "";
     }
@@ -105,10 +100,10 @@ public class EntradaSalida {
      * La información puede ser procesada a través de la consola o ventana.
      * @param comentario
      * @param device
-     * @return
+     * @return respuesta
      */
 
-    public int entrada_entero (String comentario, int device){
+    public static int entrada_entero (String comentario, int device){
         Scanner entrada = new Scanner(System.in);
         int respuesta;
         switch (device) {
@@ -116,8 +111,7 @@ public class EntradaSalida {
                 try{
                     System.out.println(comentario);
                     respuesta = entrada.nextInt();
-                    System.out.println("El resultado es " + respuesta);
-                    break;
+                    return respuesta;
                 }
                 catch (Exception e){
                     System.out.println(e.getMessage());
@@ -127,21 +121,16 @@ public class EntradaSalida {
                 try {
                     JOptionPane.showInputDialog(comentario);
                     respuesta = entrada.nextInt();
-                    JOptionPane.showMessageDialog(null,respuesta);
-                    break;
+                    return respuesta;
                 }
                 catch (Exception e){
                     System.out.println(e.getMessage());
                 }
-
             default: JOptionPane.showInputDialog("Ha habído un error");
         }
 
         return 0;
     }
-
-
-
 
 
 }
